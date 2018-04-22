@@ -10,7 +10,7 @@ from datetime import datetime, date, time
 
 BOT_NAME = 'Anatolii'
 BOT_VERSION = '1.0 stable'
-BOT_AUTHOR = 'mahoraz'
+BOT_AUTHOR = 'mahorazb'
 
 VK_TOKEN = '9a823be46c215b90d80e990b3323b7b7e577e37f920e0ae3c448c22cb08a7b79d34a974fe047ec08461ce'
 VK_ID = '164648417'
