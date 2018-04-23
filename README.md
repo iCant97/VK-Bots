@@ -1,8 +1,6 @@
 # VK-Bots
 
-VK LongPoll Bots
-
-python **3.6**
+VK LongPoll Bots Python **3.6**
 
 #### Use for **Anatloii**: ####
 ```
