@@ -1,5 +1,11 @@
 # coding: utf-8
 
+"""
+@author: mahorazb
+@contact: https://vk.com/mahoraz
+
+"""
+
 import sys
 import random
 
