@@ -1,12 +1,10 @@
-# VK-Bots
+# VK-Bot
 
-VK LongPoll Bots Python **3.6**
+VK LongPoll Bot Python **3.6**
 
-#### Use for **Anatloii**: ####
+#### Use for bot: ####
 ```
 pip install requests
 pip install json
-pip install requests
 pip install pymysql
-pip install colorama
 ```
