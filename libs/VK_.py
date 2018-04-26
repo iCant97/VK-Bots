@@ -15,7 +15,7 @@ class VK_LongPoll():
         self.session = requests.Session()
         
         self.v = '5.74'
-        self.token = 'fa7883e679d6d9229cde206ac5c70410dc3ede2b83208201622d03e8234f0402a53e4106dd8f3164beeee'
+        self.token = 'token'
         self.id = 165377765
         
     def connect(self):
