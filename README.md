@@ -1,6 +1,6 @@
 # VK-Bot
 
-VK LongPoll Bot Python **3.6**
+VK Bots LongPoll Python **3.6**
 
 #### Use for bot: ####
 ```
