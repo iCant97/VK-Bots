@@ -5,7 +5,7 @@ import json
         
 class VK_LongPoll():
 	
-    def __init__(self):
+    def __init__(self, token, group_id):
 		
         self.key = None
         self.server = None
@@ -15,8 +15,10 @@ class VK_LongPoll():
         self.session = requests.Session()
         
         self.v = '5.74'
-        self.token = 'token'
-        self.id = 165377765
+        self.token = token
+        self.id = group_id
+        
+        self.connect()
         
     def connect(self):
         

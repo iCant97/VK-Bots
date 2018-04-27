@@ -1,7 +1,5 @@
 # coding: utf-8
 
-import sys
-
 class Tasks():
     def __init__(self, vk, sql):
         self.vk = vk

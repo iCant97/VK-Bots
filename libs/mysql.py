@@ -4,9 +4,9 @@ import pymysql
 
 class MySQL():
     
-    def __init__(self):
+    def __init__(self, host = 'localhost', user = 'root', password = '', db='bot'):
         try:
-            self.connection = pymysql.connect(host = 'localhost', user = 'root', password='', db='bot',  charset='utf8', use_unicode=True, autocommit=True)
+            self.connection = pymysql.connect(host, user, password, db,  charset='utf8', use_unicode=True, autocommit=True)
          
             self.handle = self.connection.cursor()
         

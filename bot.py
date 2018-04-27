@@ -3,11 +3,11 @@
 """
 @author: mahorazb
 @contact: https://vk.com/mahoraz
-
 """
 
 import sys
 import random
+import configparser
 
 sys.path.append('libs/') # library`s
 sys.path.append('main/') # main templates
@@ -17,14 +17,27 @@ from mysql import MySQL
 from tasks import Tasks
 from user import User
 
+CONFIG = dict()
+
 def main():
-    vk = VK_LongPoll()
-    sql = MySQL()
-    task = Tasks(vk, sql)
-    us = User(vk, sql)
+    CONFIG = loadConfig()
+	
+    vk = VK_LongPoll(
+        CONFIG['vk_group_token'],
+        CONFIG['vk_group_id']
+    )
+    
+    sql = MySQL(
+        CONFIG['sql_host'],
+        CONFIG['sql_user'],
+        CONFIG['sql_pass'],
+        CONFIG['sql_db']
+    )
   
     ALL_TESTS = sql.ex('SELECT * FROM rus;')
-    vk.connect()
+    
+    task = Tasks(vk, sql)
+    us = User(vk, sql)
     
     for event in vk.listen():
         if event['type'] == 'message_new':
@@ -81,11 +94,30 @@ def main():
            
         elif event['type'] == 'message_reply':
             if 'from_id' in event['object']:
-                print('REPLY %d: %s' % (event['object']['from_id'],event['object']['body']))
+                print('REPLY from %d: %s' % (event['object']['from_id'],event['object']['body']))
             else:
-                print('REPLY BOT')
+                print('REPLY from BOT')
+                
+        elif event['type'] == 'group_join':
+            pass
+            
+        elif event['type'] == 'group_leave':
+            pass
                 
         else: print(event)
+        
+
+def loadConfig(filename = 'config.ini'):
+    VALS = dict()
+    
+    conf = configparser.ConfigParser()
+    conf.read('config.ini')
+    
+    for section_name in conf.sections():
+        for name,value in conf.items(section_name):
+            VALS[name] = value
+    
+    return VALS
 
 if __name__ == '__main__':
     main()
